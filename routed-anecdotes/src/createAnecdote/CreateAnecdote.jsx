@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+useNavigate;
 
 function CreateAnecdote() {
   const [content, setContent] = useState('');
@@ -8,6 +10,7 @@ function CreateAnecdote() {
 
   const handleSubmit = () => {
     e.preventDefault();
+    useNavigate('/');
   };
   return (
     <div>
