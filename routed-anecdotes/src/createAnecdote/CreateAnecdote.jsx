@@ -3,14 +3,22 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 useNavigate;
 
-function CreateAnecdote() {
+function CreateAnecdote({ addNew }) {
   const [content, setContent] = useState('');
   const [author, setAuthor] = useState('');
   const [url, setUrl] = useState('');
 
-  const handleSubmit = () => {
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    useNavigate('/');
+    addNew({
+      content,
+      author,
+      url,
+      votes: 0,
+    });
+    navigate('/');
   };
   return (
     <div>
@@ -23,7 +31,7 @@ function CreateAnecdote() {
         </div>
         <div>
           author
-          <input value={author} onChange={(e) => setAuthot(e.target.value)} />
+          <input value={author} onChange={(e) => setAuthor(e.target.value)} />
         </div>
         <div>
           url for the mor info

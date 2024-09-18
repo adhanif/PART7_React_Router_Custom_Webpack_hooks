@@ -13,9 +13,9 @@ function Menu() {
       <Link to='/create' style={padding}>
         create new
       </Link>
-      <a href='#' style={padding}>
+      <Link to='/about' style={padding}>
         about
-      </a>
+      </Link>
     </div>
   );
 }

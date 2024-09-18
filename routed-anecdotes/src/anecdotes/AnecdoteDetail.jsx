@@ -1,5 +1,4 @@
 import React from 'react';
-import Anecdotes from './Anecdotes';
 import { useParams } from 'react-router-dom';
 useParams;
 
@@ -10,8 +9,8 @@ function AnecdoteDetail({ anecdotes }) {
 
   return (
     <div>
-      <h1>{currentAnecdote.content}</h1>
-      <p>has {currentAnecdote.votes} votes</p>
+      <h1>{currentAnecdote && currentAnecdote.content}</h1>
+      <p>has {currentAnecdote && currentAnecdote.votes} votes</p>
     </div>
   );
 }
