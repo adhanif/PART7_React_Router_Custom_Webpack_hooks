@@ -12,19 +12,20 @@ function CreateAnecdote({ addNew }) {
   const handleClick = (e) => {
     e.preventDefault();
     addNew({
-      content: content.value,
-      author: author.value,
-      url: url.value,
+      content: content.inputProps.value,
+      author: author.inputProps.value,
+      url: url.inputProps.value,
       votes: 0,
     });
     navigate('/');
   };
 
-  // const handleReset = () => {
-  //   content.reset();
-  //   author.reset();
-  //   url.reset();
-  // };
+  const handleReset = (e) => {
+    e.preventDefault();
+    content.reset();
+    author.reset();
+    url.reset();
+  };
 
   return (
     <div>
@@ -33,18 +34,18 @@ function CreateAnecdote({ addNew }) {
       <form>
         <div>
           content
-          <input {...content} />
+          <input {...content.inputProps} />
         </div>
         <div>
           author
-          <input {...author} />
+          <input {...author.inputProps} />
         </div>
         <div>
           url for the mor info
-          <input {...url} />
+          <input {...url.inputProps} />
         </div>
         <button onClick={handleClick}>create</button>
-        <button onClick={content.reset}>reset</button>
+        <button onClick={handleReset}>reset</button>
       </form>
     </div>
   );
