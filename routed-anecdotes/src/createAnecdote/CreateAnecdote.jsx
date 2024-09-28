@@ -9,7 +9,7 @@ function CreateAnecdote({ addNew }) {
   const url = useField('text');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleClick = (e) => {
     e.preventDefault();
     addNew({
       content: content.value,
@@ -19,11 +19,18 @@ function CreateAnecdote({ addNew }) {
     });
     navigate('/');
   };
+
+  // const handleReset = () => {
+  //   content.reset();
+  //   author.reset();
+  //   url.reset();
+  // };
+
   return (
     <div>
       {' '}
       <h2>create a new anecdote</h2>
-      <form onSubmit={handleSubmit}>
+      <form>
         <div>
           content
           <input {...content} />
@@ -36,7 +43,8 @@ function CreateAnecdote({ addNew }) {
           url for the mor info
           <input {...url} />
         </div>
-        <button>create</button>
+        <button onClick={handleClick}>create</button>
+        <button onClick={content.reset}>reset</button>
       </form>
     </div>
   );
